@@ -6,7 +6,6 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/ilmsg/skydash/handler"
-	_ "github.com/mattn/go-sqlite3"
 )
 
 func main() {
@@ -25,8 +24,14 @@ func main() {
 
 	r.HandleFunc("/users/login", userHandler.Login).Methods(http.MethodGet)
 	r.HandleFunc("/users/login", userHandler.PostLogin).Methods(http.MethodPost)
+
+	r.HandleFunc("/pages/table", indexHandler.Table).Methods(http.MethodGet)
+	r.HandleFunc("/pages/ui/button", indexHandler.UIButton).Methods(http.MethodGet)
+	r.HandleFunc("/pages/ui/dropdowns", indexHandler.UIDropdown).Methods(http.MethodGet)
+	r.HandleFunc("/pages/ui/typography", indexHandler.UITypography).Methods(http.MethodGet)
 	r.HandleFunc("/", indexHandler.Index).Methods(http.MethodGet)
 
+	// r.NotFoundHandler = http.HandlerFunc(indexHandler.Notfound)
 	http.ListenAndServe(":3070", r)
 }
 
