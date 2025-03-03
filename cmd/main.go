@@ -29,6 +29,9 @@ func main() {
 	r.HandleFunc("/pages/ui/button", indexHandler.UIButton).Methods(http.MethodGet)
 	r.HandleFunc("/pages/ui/dropdowns", indexHandler.UIDropdown).Methods(http.MethodGet)
 	r.HandleFunc("/pages/ui/typography", indexHandler.UITypography).Methods(http.MethodGet)
+	r.HandleFunc("/pages/form/basic", indexHandler.UITypography).Methods(http.MethodGet)
+	r.HandleFunc("/pages/chart/chart", indexHandler.Chart).Methods(http.MethodGet)
+	r.HandleFunc("/pages/icon/mdi", indexHandler.IconMdi).Methods(http.MethodGet)
 	r.HandleFunc("/", indexHandler.Index).Methods(http.MethodGet)
 
 	// r.NotFoundHandler = http.HandlerFunc(indexHandler.Notfound)

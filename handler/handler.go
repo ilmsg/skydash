@@ -29,6 +29,18 @@ func (h *IndexHandler) UITypography(w http.ResponseWriter, r *http.Request) {
 	Render(w, nil, []string{filepath.Join("ui-element", "typography.html")})
 }
 
+func (h *IndexHandler) FormBasic(w http.ResponseWriter, r *http.Request) {
+	Render(w, nil, []string{filepath.Join("form", "basic.html")})
+}
+
+func (h *IndexHandler) Chart(w http.ResponseWriter, r *http.Request) {
+	Render(w, nil, []string{filepath.Join("chart", "chart.html")})
+}
+
+func (h *IndexHandler) IconMdi(w http.ResponseWriter, r *http.Request) {
+	Render(w, nil, []string{filepath.Join("icon", "mdi.html")})
+}
+
 func (h *IndexHandler) Notfound(w http.ResponseWriter, r *http.Request) {
 	Render(w, nil, []string{"404.html"})
 }
